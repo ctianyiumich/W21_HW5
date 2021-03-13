@@ -1,3 +1,7 @@
+#########################################
+##### Name: Tianyi Chi              #####
+##### Uniqname: ctianyi             #####
+#########################################
 import unittest
 import hw5_cards
 
@@ -34,8 +38,10 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
-        #return X, Y
+        c1 = hw5_cards.Card(0, 12)
+        self.assertEqual(c1.rank_name, "Queen")
+        return self.assertEqual(c1.rank_name, "Queen")
+
     
     def test_q2(self):
         '''
@@ -49,8 +55,9 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
-        #return X, Y    
+        c2 = hw5_cards.Card(1, 2)
+        self.assertEqual(c2.suit_name, "Clubs")
+        #return X, Y
     
 
     def test_q3(self):
@@ -66,7 +73,8 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
+        c3 = hw5_cards.Card(3, 13)
+        self.assertEqual(c3.__str__(), "King of Spades")
         #return X, Y
     
     def test_q4(self):
@@ -81,7 +89,8 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
+        d4 = hw5_cards.Deck()
+        self.assertEqual(len(d4.cards), 52)
         #return X, Y  
 
     def test_q5(self):
@@ -96,7 +105,8 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
+        d5 = hw5_cards.Deck()
+        self.assertIsInstance(d5.deal_card(), hw5_cards.Card)
         #return X, Y
     
     def test_q6(self):
@@ -112,7 +122,10 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
+        d6 = hw5_cards.Deck()
+        Deck_length_0 = len(d6.cards)
+        d6.deal_card()
+        self.assertEqual(len(d6.cards), Deck_length_0 - 1)
         #return X, Y    
     
 
@@ -129,7 +142,11 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
+        d7 = hw5_cards.Deck()
+        removed_Card = d7.deal_card()
+        Deck_length_0 = len(d7.cards)
+        d7.replace_card(removed_Card)
+        self.assertEqual(len(d7.cards), Deck_length_0 + 1)
         #return X, Y
     
     def test_q8(self):
@@ -145,7 +162,12 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
+        d8 = hw5_cards.Deck()
+        Deck_length_0 = len(d8.cards)
+        for c in d8.cards:
+            d8.replace_card(c)
+        self.assertEqual(len(d8.cards), Deck_length_0)
+
         #return X, Y  
 
 
